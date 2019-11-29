@@ -34,7 +34,13 @@ for i in currency_pairs:
 	print("Getting rates for:",i)
 	rates.append(MT5CopyRatesFrom(i, MT5_TIMEFRAME_H1, utc_from, N))
 	  
+	
 
 # shut down connection to the MetaTrader 5 terminal
 MT5Shutdown()
+
+for i in range(len(rates[0])):
+	print(rates[0][i][0])
+	print(rates[15][i][0])
+	print("=================")
 
