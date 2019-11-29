@@ -1,3 +1,13 @@
+INSTALLATION
+- pip install MetaTrader5
+- pip install matplotlib
+- pip install pytz
+
+
 TODO:
-- Get prices for currency pairs from DarwinEx using MetaTrader5 API
+- Starting from current UTC time, get N rates for currency pairs from DarwinEx Server using MetaTrader5 API...[DONE]
+- For each currency pair, extract the time and the corresponding closing price
 - Generate heatmap for the prices
+
+
+
