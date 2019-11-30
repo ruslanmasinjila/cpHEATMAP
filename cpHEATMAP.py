@@ -68,7 +68,11 @@ for i in range(len(rates)):			# For every currency pair
 	for j in rates[i]:		    	# For every rate in the current currency pair
 		closing_prices.append(j[4])	# Closing price is at index 4 of every rate
 	
-	cpTABLE.loc[currency_pairs[i],:] = closing_prices
+	# Scale closing prices between 0 and 1
+	scaled_closing_prices = [(x-min(closing_prices))/(max(closing_prices)-min(closing_prices)) for x in closing_prices]
+	
+	# Insert the scalled closing prices into table at the corresponding  currency pair
+	cpTABLE.loc[currency_pairs[i],:] = scaled_closing_prices
 
 
 print(cpTABLE)
