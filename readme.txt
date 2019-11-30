@@ -1,11 +1,21 @@
+
+===================
+Python Version
+===================
+Python 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32
+
+===================
 INSTALLATION
-- pip install MetaTrader5
-- pip install matplotlib
-- pip install pytz
-- pip install pandas
+===================
+pip install MetaTrader5
+pip install matplotlib
+pip install pytz
+pip install pandas
+pip install seaborn
 
-
-TODO:
+===================
+TODO
+===================
 
 - Starting from current UTC time, get N rates for currency pairs from DarwinEx Server using MetaTrader5 API...[DONE]
 
@@ -28,12 +38,8 @@ TODO:
 ---------------------------------------------------------
 | pairN        |       |       |       |       |        |
 ---------------------------------------------------------
-
-
-
-
  
-- Generate heatmap for the prices
+- Generate heatmap for the prices...[DONE]
 
 
 

@@ -3,6 +3,8 @@ from MetaTrader5 import *
 from pytz import timezone
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
+
 
 
 #==================================================
@@ -38,7 +40,7 @@ currency_pairs = [currency_pair.rstrip('\n') for currency_pair in open("currency
 utc_from = datetime.utcnow()
 
 rates = []
-N = 1000
+N = 100
 
 for i in currency_pairs:
 	print("Getting rates for:",i)
@@ -71,10 +73,22 @@ for i in range(len(rates)):			# For every currency pair
 	# Scale closing prices between 0 and 1
 	scaled_closing_prices = [(x-min(closing_prices))/(max(closing_prices)-min(closing_prices)) for x in closing_prices]
 	
-	# Insert the scalled closing prices into table at the corresponding  currency pair
+	# Insert the scaled closing prices into table at the corresponding  currency pair
 	cpTABLE.loc[currency_pairs[i],:] = scaled_closing_prices
+	
 
 
-print(cpTABLE)
+
+# Convert DataFrame value types from object to float
+cpTABLE = cpTABLE[cpTABLE.columns].astype(float)
+
+# Display the table
+print(cpTABLE.index)
+
+# Create heatmap of the table
+sns.heatmap(cpTABLE, xticklabels=True, yticklabels=True, cmap="RdYlGn")
+
+# Display the heatmap
+plt.show()
 
 
